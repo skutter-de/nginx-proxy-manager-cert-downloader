@@ -1,0 +1,11 @@
+#!/bin/bash
+
+/var/lib/nginx-proxy-manager-cert-downloader/venv/bin/nginx-proxy-manager-cert-downloader
+mkdir -p /root/certificates
+unzip /tmp/certificates-*.zip -d /root/certificates
+cp -f /root/certificates/fullchain* $NGINX_PROXY_MANAGER_FULLCHAIN_PATH
+cp -f /root/certificates/privkey* $NGINX_PROXY_MANAGER_PRIVKEY_PATH
+if [ -v $NGINX_PROXY_MANAGER_RESTART_UNIT ]; then
+    systemctl restart $NGINX_PROXY_MANAGER_RESTART_UNIT
+fi
+rm -rf /root/certificates

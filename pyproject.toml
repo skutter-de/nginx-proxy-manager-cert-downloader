@@ -1,0 +1,24 @@
+[project]
+name = "nginx-proxy-manager-cert-downloader"
+version = "0.5.0"
+description = ""
+authors = [
+    {name = "Sebastian Kutter",email = "sebastian@skutter.de"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)"
+]
+
+[project.scripts]
+nginx-proxy-manager-cert-downloader = 'nginx_proxy_manager_cert_downloader.main:run'
+
+[tool.poetry]
+packages = [
+    { include = "nginx_proxy_manager_cert_downloader" },
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
