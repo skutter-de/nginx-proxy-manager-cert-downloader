@@ -29,6 +29,8 @@ jobs:
       - name: Build release distributions
         run: |
           # NOTE: put your own distribution build steps here.
+          pip install poetry
+          poetry install
           poetry build
 
       - name: Upload distributions
